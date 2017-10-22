@@ -1,0 +1,22 @@
+{
+  "name": "",
+  "version": "0.0.1",
+  "description": "Validation library inspired by Yii",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "validator": "^9.0.0"
+  },
+  "devDependencies": {
+    "jasmine": "^2.8.0"
+  },
+  "scripts": {
+    "test": "jasmine"
+  },
+  "author": "Valerii Tropin <tropin.valeriy@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "validation",
+    "validator"
+  ]
+}
