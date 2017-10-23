@@ -10,7 +10,7 @@ class Email extends BaseValidator
 
     validateValue(value) {
         if (!validator.isEmail(value)) {
-            return [this.message, this.attribute];
+            return [this.message, {attribute: this.attribute}];
         }
     }
 }
