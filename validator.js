@@ -1,8 +1,8 @@
 const BaseValidator = require('./validators/base-validator');
 const _ = require('lodash');
 
-module.exports = function (validatorsList) {
-    validatorsList = validatorsList || require('./validators-list');
+module.exports = function (aliases) {
+    aliases = aliases || require('./aliases');
     return function validate(data, rules) {
         const promisesList = [];
         const validationErrors = {};
@@ -80,9 +80,9 @@ module.exports = function (validatorsList) {
             validator.attribute = attribute;
         } else if(typeof name === 'function') {
             options['callback'] = name;
-            validator = new validatorsList['inline'](attribute, options);
+            validator = new aliases['inline'](attribute, options);
         } else {
-            validator = new validatorsList[name](attribute, options);
+            validator = new aliases[name](attribute, options);
         }
         return validator;
     }

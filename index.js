@@ -1,4 +1,5 @@
 module.exports = {
-    validatorsList: require('./validators-list'),
+    aliases: require('./aliases'),
     validator: require('./validator'),
+    validators: require('./validators/index'),
 };
