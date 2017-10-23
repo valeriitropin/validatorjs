@@ -1,11 +1,8 @@
-const Email = require('./validators/email');
-const Filter = require('./validators/filter');
-const Required = require('./validators/required');
-const StringValidator = require('./validators/string-validator');
+const validators = require('./validators/index');
 
 module.exports = {
-    email: Email,
-    filter: Filter,
-    required: Required,
-    string: StringValidator,
+    email: validators.Email,
+    filter: validators.Filter,
+    required: validators.Required,
+    string: validators.StringValidator,
 };
