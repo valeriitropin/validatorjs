@@ -31,7 +31,7 @@ describe('Email validator', function() {
             errors,
         });
         validator.validate().then(res => {}, err => {
-            expect(errors.email[0]).toBe('{attribute} is not a valid email address.');
+            expect(errors[attribute][0]).toBe('{attribute} is not a valid email address.');
             done();
         });
     });
