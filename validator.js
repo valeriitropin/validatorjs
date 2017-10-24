@@ -1,9 +1,14 @@
 const BaseValidator = require('./validators/base-validator');
 const _ = require('lodash');
 
-module.exports = function (aliases) {
-    aliases = aliases || require('./aliases');
-    return function validate(data, rules) {
+module.exports = function (options) {
+    options = options || {};
+    let aliases = options.aliases || require('./aliases');
+    let formatter = options.formatter || require('./formatter');
+
+    return validate;
+
+    function validate(data, rules) {
         const promisesList = [];
         const validationErrors = {};
         const errors = [];
@@ -60,6 +65,7 @@ module.exports = function (aliases) {
             let options = rule[2] || {};
             options['model'] = data;
             options['errors'] = errors;
+            options['formatter'] = formatter;
             if (Array.isArray(rule[0])) {
                 let ruleName = rule[1];
                 for (let attribute of rule[0]) {

@@ -1,5 +1,6 @@
 describe('String validator', () => {
     let StringValidator = require('../../validators/string-validator');
+    let _ = require('lodash');
     let attribute = 'str';
     
     it('Valid value', (done) => {
@@ -34,7 +35,7 @@ describe('String validator', () => {
             .validate()
             .then(res => {})
             .catch(err => {
-                expect(errors[attribute][0]).toBe('{attribute} must be a string.');
+                expect(errors[attribute][0]).toBe(_.startCase(attribute) + ' must be a string.');
                 done();
             });
     });
@@ -53,7 +54,7 @@ describe('String validator', () => {
             .validate()
             .then(res => {})
             .catch(err => {
-                expect(errors[attribute][0]).toBe('{attribute} is too short.');
+                expect(errors[attribute][0]).toBe(_.startCase(attribute) + ' is too short.');
                 done();
             });
     });
@@ -72,7 +73,7 @@ describe('String validator', () => {
             .validate()
             .then(res => {})
             .catch(err => {
-                expect(errors[attribute][0]).toBe('{attribute} is too long.');
+                expect(errors[attribute][0]).toBe(_.startCase(attribute) + ' is too long.');
                 done();
             });
     });
@@ -110,7 +111,7 @@ describe('String validator', () => {
             .validate()
             .then(res => {})
             .catch(err => {
-                expect(errors[attribute][0]).toBe('{attribute} should contain {length} symbol(s).');
+                expect(errors[attribute][0]).toBe(_.startCase(attribute) + ' should contain 5 symbol(s).');
                 done();
             });
     });

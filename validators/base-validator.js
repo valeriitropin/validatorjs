@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const formatter = require('../formatter');
 
 class BaseValidator
 {
@@ -13,13 +14,14 @@ class BaseValidator
         this.errors = null;
         this.message = null;
         this.skipOnError = true;
+        this.formatter = formatter;
     }
 
     addError(message) {
         if (!this.errors[this.attribute]) {
             this.errors[this.attribute] = [];
         }
-        this.errors[this.attribute].push(message);
+        this.errors[this.attribute].push(this.formatter(message[0], message[1]));
     }
 
     validate(value) {
@@ -37,7 +39,7 @@ class BaseValidator
                         }
                     });
             }
-            this.addError(result[0]);
+            this.addError(result);
             if (this.skipOnError) {
                 return Promise.reject();
             }

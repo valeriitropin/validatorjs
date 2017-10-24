@@ -1,5 +1,6 @@
 describe('Required validator', function() {
     let Required = require('../../validators/required');
+    let _ = require('lodash');
     let attribute = 'required';
 
     it('Not empty attribute', (done) => {
@@ -29,7 +30,7 @@ describe('Required validator', function() {
             errors,
         });
         validator.validate().then(res => {}, err => {
-            expect(errors[attribute][0]).toBe('{attribute} is required.');
+            expect(errors[attribute][0]).toBe(_.startCase(attribute) + ' is required.');
             done();
         });
     });
@@ -43,7 +44,7 @@ describe('Required validator', function() {
             errors,
         });
         validator.validate().then(res => {}, err => {
-            expect(errors[attribute][0]).toBe('{attribute} is required.');
+            expect(errors[attribute][0]).toBe(_.startCase(attribute) + ' is required.');
             done();
         });
     });

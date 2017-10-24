@@ -1,5 +1,6 @@
 describe('Email validator', function() {
     let Email = require('../../validators/email');
+    let _ = require('lodash');
     let validEmail = 'test@example.com';
     let invalidEmail = 'test@';
     let attribute = 'email';
@@ -31,7 +32,7 @@ describe('Email validator', function() {
             errors,
         });
         validator.validate().then(res => {}, err => {
-            expect(errors[attribute][0]).toBe('{attribute} is not a valid email address.');
+            expect(errors[attribute][0]).toBe(_.startCase(attribute) + ' is not a valid email address.');
             done();
         });
     });

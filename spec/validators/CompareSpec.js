@@ -1,5 +1,6 @@
 describe('Compare validator', function() {
     let Compare = require('../../validators/compare');
+    let _ = require('lodash');
     let attribute = 'password';
     let compareAttribute = 'comparePassword';
 
@@ -34,7 +35,7 @@ describe('Compare validator', function() {
             compareAttribute: compareAttribute,
         });
         validator.validate().then(res => {}, err => {
-            expect(errors[attribute][0]).toBe('{attribute} must be equal to "{compareAttribute}".');
+            expect(errors[attribute][0]).toBe(_.startCase(attribute) + ' must be equal to "' + _.startCase(compareAttribute) + '".');
             done();
         });
     });
