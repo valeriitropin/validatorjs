@@ -1,8 +1,12 @@
 {
-  "name": "",
+  "name": "yiilidator",
   "version": "0.0.1",
   "description": "Validation library inspired by Yii",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url" : "https://github.com/valeriitropin/validatorjs.git"
+  },
   "dependencies": {
     "lodash": "^4.17.4",
     "validator": "^9.0.0"
@@ -17,6 +21,7 @@
   "license": "MIT",
   "keywords": [
     "validation",
-    "validator"
+    "validator",
+    "validate"
   ]
 }
