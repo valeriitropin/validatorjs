@@ -1,4 +1,5 @@
 const BaseValidator = require('./base-validator');
+const _ = require('lodash');
 
 class Compare extends BaseValidator
 {
@@ -10,7 +11,7 @@ class Compare extends BaseValidator
 
     validateValue(value) {
         if (value !== this.model[this.compareAttribute]) {
-            return [this.message, {attribute: this.attribute, compareAttribute: this.compareAttribute}];
+            return [this.message, {compareAttribute: _.startCase(this.compareAttribute)}];
         }
     }
 }

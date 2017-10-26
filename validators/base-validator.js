@@ -18,6 +18,7 @@ class BaseValidator
     }
 
     addError(message) {
+        message[1]['attribute'] = _.startCase(this.attribute);
         if (!this.errors[this.attribute]) {
             this.errors[this.attribute] = [];
         }

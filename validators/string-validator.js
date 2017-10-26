@@ -15,19 +15,19 @@ class StringValidator extends BaseValidator
 
     validateValue(value) {
         if (typeof value !== 'string') {
-            return [this.message, {attribute: this.attribute}];
+            return [this.message, {}];
         }
 
         if (this.min && value.length < this.min) {
-            return [this.tooShort, {attribute: this.attribute}];
+            return [this.tooShort, {}];
         }
 
         if (this.max && value.length > this.max) {
-            return [this.tooLong, {attribute: this.attribute}];
+            return [this.tooLong, {}];
         }
 
         if (this.length && value.length !== this.length) {
-            return [this.notEqual, {attribute: this.attribute, length: this.length}];
+            return [this.notEqual, {length: this.length}];
         }
     }
 }

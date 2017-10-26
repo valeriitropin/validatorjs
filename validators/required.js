@@ -9,7 +9,7 @@ class Required extends BaseValidator
 
     validateValue(value) {
         if (value === undefined || value === null) {
-            return [this.message, {'attribute': this.attribute}];
+            return [this.message, {}];
         }
     }
 }
