@@ -26,7 +26,7 @@ class BaseValidator
     }
 
     validate(value) {
-        value = value || this.model[this.attribute];
+        value = arguments.length ? value : this.model[this.attribute];
         let result;
         if (result = this.validateValue(value)) {
             if (result instanceof Promise) {
